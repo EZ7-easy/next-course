@@ -8,7 +8,6 @@ import cate5 from '@/public/img/cate5.png'
 import Image from "next/image";
 
 const Category = () => {
-    // @ts-ignore
     return (
         <div>
             <div className={"mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8 justify-between flex mb-7"}>
@@ -16,7 +15,7 @@ const Category = () => {
                     <h1 className={"text-3xl"}>Top Categories</h1>
                     <p className={"mt-3"}>Explore our Popular Categories</p>
                 </div>
-                <div className={"max-sm:hidden"}>
+                <div className={"max-sm:hidden mt-auto"}>
                     <Button className={"bg-orange-500 dark:text-white rounded-full"}>All Categories</Button>
                 </div>
             </div>

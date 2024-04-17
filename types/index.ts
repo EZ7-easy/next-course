@@ -8,7 +8,7 @@ export interface ICourse {
     image: {
         url: string
     }
-
+    cost: number
 }
 export interface IAuthor {
     name: string

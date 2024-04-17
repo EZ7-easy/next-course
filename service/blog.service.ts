@@ -1,21 +1,23 @@
 import {gql, request} from "graphql-request";
+import {ICourse} from "@/types";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
 export const getCourses = async () => {
     const query = gql`
-    	query MyQuery {
-  			courses {
-  			  title
-  			  author {
-  			    name
-  			    image {
-  			      url
-  			    }
-  	  		}
-    	  image {
-    	    url
-    	  }
+      query MyQuery {
+        courses {
+          title
+          cost
+          author {
+            name
+            image {
+              url
+            }
+          }
+        image {
+          url
+        }
        }
     }
    `

@@ -8,8 +8,6 @@ import {usePathname} from "next/navigation";
 import {cn} from "@/lib/utils";
 import Mobile from "@/app/(root)/_components/mobile";
 import { BookOpen } from 'lucide-react';
-import {Button} from "@/components/ui/button";
-
 
 function Navbar() {
     const pathName = usePathname()
@@ -35,13 +33,6 @@ function Navbar() {
                         </Link>
                     ))}
                 </div>
-                {/*<div className={"gap-3 flex items-center max-sm:hidden"}>*/}
-                {/*    <Link href={"/sign-up"}><Button className={"bg-none"}>Login / Register</Button></Link>*/}
-                {/*    <div className={"text-center rounded-full border-2 border-orange-500 pt-1 pb-1"}>*/}
-                {/*        <GlobalSearch/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*	Search*/}
                 <div className={"gap-1 flex items-center"}>
                     <GlobalSearch/>
                     <ModeToggle/>
