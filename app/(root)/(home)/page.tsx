@@ -61,7 +61,7 @@ async function HomePage() {
                         <div className={"mt-[60px]"}>
                             <h1 className={"text-5xl text-orange-500"}>25K+</h1>
                             <p className={"text-xl text-black dark:text-white mt-3"}>
-                                Active Students
+                                Active Student
                             </p>
                         </div>
                     </div>
