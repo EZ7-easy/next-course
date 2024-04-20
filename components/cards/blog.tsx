@@ -22,13 +22,16 @@ function BlogCard(course: Props) {
                         alt={course.title}
                         className='rounded-md  object-cover'
                     />
+
                 </div>
-                <div className='space-y-4 mx-auto'>
-                    <div className='flex items-center gap-4 ml-7 mt-2'>
-                        <div className='flex items-center gap-2'>
-                            <Image
-                                src={course.author.image.url}
-                                alt='author'
+            </Link>
+            <div className='space-y-4 mx-auto'>
+                <div className='flex items-center gap-4 ml-7 mt-2'>
+                    
+                    <div className='flex items-center gap-2'>
+                        <Image
+                            src={course.author.image.url}
+                            alt='author'
                                 width={30}
                                 height={30}
                                 className='object-cover rounded-sm'
@@ -59,8 +62,8 @@ function BlogCard(course: Props) {
                         </p>
                         <Link href={"/blog"} className={"text-grey ml-[190px]"}>View more</Link>
                     </div>
-                </div>
-            </Link>
+
+            </div>
         </div>
     )
 }

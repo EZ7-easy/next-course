@@ -12,12 +12,12 @@ async function HomePage() {
     const courses = await getCourses()
     return (
         <>
-            <div className={"bg-[url('/img/hero.png')] bg-no-repeat bg-cover"}>
+            <div className={"bg-[url('/img/hero.png')] dark:bg-[url('/img/asl.webp')] bg-cover bg-center"}>
                 <div
                     className={"h-[500px] pb-[100px] mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8"}>
                     <div className={"mt-[110px]"}>
-                        <h1 className={"text-4xl text-black"}>Build Skills with <br/> Online Course</h1>
-                        <p className={"text-sm text-grey dark:text-black mt-3"}>
+                        <h1 className={"text-4xl text-black dark:text-white"}>Build Skills with <br/> Online Course</h1>
+                        <p className={"text-sm text-grey dark:text-white     mt-3"}>
                             We denounce with righteous indignation and dislike men who are <br/> so beguiled and
                             demoralized
                             that cannot trouble. </p>
