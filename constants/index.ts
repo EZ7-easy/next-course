@@ -3,5 +3,4 @@ import {Contact2, FileCode2, FolderArchive, Home, ListCollapse} from "lucide-rea
 export const navLinks = [
     { name: 'Home', route: '/', icon: Home },
     { name: 'Courses', route: '/courses', icon: ListCollapse },
-    { name: 'Blog', route: '/blog', icon: FileCode2 },
 ]

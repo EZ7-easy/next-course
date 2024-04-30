@@ -12,7 +12,7 @@ async function HomePage() {
     const courses = await getCourses()
     return (
         <>
-            <div className={"bg-[url('/img/hero.png')] dark:bg-[url('/img/asl.webp')] bg-cover bg-center"}>
+            <div className={"bg-[url('/img/hero.png')] dark:bg-[url('/img/hero1.jpg')] bg-cover bg-center"}>
                 <div
                     className={"h-[500px] pb-[100px] mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8"}>
                     <div className={"mt-[110px]"}>
@@ -45,7 +45,7 @@ async function HomePage() {
                     ))}
                 </div>
                 <div
-                    className={"mt-10 max-w-screen-2xl mx-auto bg-[url('/img/group.png')] bg-no-repeat bg-cover rounded-3xl h-[400px]"}>
+                    className={"text-black mt-10 max-w-screen-2xl mx-auto bg-[url('/img/group.png')] bg-no-repeat bg-cover rounded-3xl h-[400px]"}>
                     <div className={"pt-[110px] pl-7"}>
                         <h1 className={"text-md"}>
                             GET MORE POWER FROM

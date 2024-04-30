@@ -11,7 +11,7 @@ function BlogCard(course: Props) {
     return (
         <div className={"w-[370px] border rounded-3xl mx-auto"}>
             <Link
-                href={'/'}
+                href={`/courses/${course.slug}`}
                 className={"mx-auto"}
             >
                 <div className=''>
@@ -46,8 +46,7 @@ function BlogCard(course: Props) {
                     {/* Time info */}
                     <div className='flex items-center gap-4 ml-7'>
                         <div className='flex items-center gap-2'>
-                            <CalendarDays className='w-5 h-5'/>
-                            <p>5 dec</p>
+                            {course.date}
                         </div>
                         <Minus/>
                         <div className='flex items-center gap-2'>
@@ -60,7 +59,7 @@ function BlogCard(course: Props) {
                         <p className={"text-xl text-green-500 mb-4"}>
                             ${course.cost}
                         </p>
-                        <Link href={"/blog"} className={"text-grey ml-[190px]"}>View more</Link>
+                        <Link href={`/courses/${course.slug}`} className={"text-grey ml-[190px]"}>View more</Link>
                     </div>
 
             </div>

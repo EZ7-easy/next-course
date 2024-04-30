@@ -9,6 +9,9 @@ export interface ICourse {
         url: string
     }
     cost: number
+    slug: string
+    content: {html:string}
+    date: string
 }
 export interface IAuthor {
     name: string
