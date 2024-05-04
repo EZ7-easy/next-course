@@ -3,6 +3,7 @@
 import {useState, useTransition} from "react";
 import {login} from "@/actions/login";
 import {FormError} from "@/components/form-error";
+import {FormSuccess} from "@/components/form-success";
 import {Input} from "@/components/ui/input";
 import {CardWrapper} from "@/components/auth/card-wrapper";
 import { useForm } from "react-hook-form";
@@ -18,7 +19,6 @@ import {
     FormMessage,
 } from '@/components/ui/form'
 import {Button} from "@/components/ui/button";
-import {FormSuccess} from "@/components/form-success";
 export const LoginForm = () => {
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -42,8 +42,8 @@ export const LoginForm = () => {
     }
 
     const [isPending, startTransition] = useTransition()
-    const [error, setError] = useState<string | undefined>("")
     const [success, setSuccess] = useState<string | undefined>("")
+    const [error, setError] = useState<string | undefined>("")
 
     return (
         <CardWrapper
