@@ -7,6 +7,7 @@ import Link from "next/link";
 import vector from "@/public/img/vector.png";
 import Img from "next/image";
 import img1 from "@/public/img/001.png";
+import {LoginButton} from "@/components/auth/login-button";
 
 async function HomePage() {
     const courses = await getCourses()
@@ -122,6 +123,11 @@ async function HomePage() {
                     <BlogCard key={course.title} {...course} />
                 ))}
             </div>
+            <LoginButton>
+                <Button className={"bg-orange-500 dark:text-white rounded-full"}>
+                    Sign in
+                </Button>
+            </LoginButton>
         </>
     )
 }
