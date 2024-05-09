@@ -3,6 +3,8 @@ import {Crete_Round, Inter, Work_Sans} from "next/font/google";
 import "./globals.css";
 import {ChildProps} from "@/types";
 import {ThemeProvider} from "@/components/providers/theme-provider";
+import { SessionProvider } from "next-auth/react";
+import { auth } from '@/auth'
 
 const inter = Inter({subsets: ["latin"]});
 const creteRound = Crete_Round({
@@ -22,18 +24,22 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({children}: ChildProps) {
+    const session = await auth()
+
     return (
-        <html lang="en" suppressHydrationWarning>
-        <body className={`${creteRound.variable} ${workSans.variable} overflow-x-hidden`}>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-        >
+        <SessionProvider session={session}>
+            <html lang="en" suppressHydrationWarning>
+            <body className={`${creteRound.variable} ${workSans.variable} overflow-x-hidden`}>
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+            >
                 {children}
-        </ThemeProvider>
-        </body>
-        </html>
+            </ThemeProvider>
+            </body>
+            </html>
+        </SessionProvider>
     );
 }

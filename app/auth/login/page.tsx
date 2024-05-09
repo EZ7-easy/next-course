@@ -2,7 +2,11 @@ import {LoginForm} from "@/components/auth/login-form";
 
 const LoginPage = () => {
     return (
-        <LoginForm/>
+        <div>
+            <div className={'mt-40'}>
+                <LoginForm/>
+            </div>
+        </div>
     )
 }
 

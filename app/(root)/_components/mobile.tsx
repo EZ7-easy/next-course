@@ -7,6 +7,8 @@ import React from "react";
 import {Separator} from "@/components/ui/separator";
 import {navLinks} from "@/constants";
 import {cn} from "@/lib/utils";
+import {LoginButton} from "@/components/auth/login-button";
+import {UserButton} from "@/components/auth/user-button";
 
 const Mobile = () => {
     const pathName = usePathname()
@@ -38,6 +40,11 @@ const Mobile = () => {
                             </Link>
                         ))}
                     </div>
+                    <LoginButton>
+                        <Button className={"bg-orange-500 ml-3 mt-3 dark:text-white rounded-full"}>
+                            Sign in
+                        </Button>
+                    </LoginButton>
                 </Separator>
             </SheetContent>
         </Sheet>

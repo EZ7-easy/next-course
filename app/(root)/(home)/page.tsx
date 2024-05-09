@@ -22,7 +22,11 @@ async function HomePage() {
                             We denounce with righteous indignation and dislike men who are <br/> so beguiled and
                             demoralized
                             that cannot trouble. </p>
-                        <Button className={"bg-orange-500 dark:text-white rounded-full mt-5"}>Post Comment</Button>
+                        <LoginButton>
+                            <Button className={"max-sm:hidden bg-orange-500 dark:text-white rounded-full mt-4 pt-6 pb-6 pr-7 pl-7"}>
+                                Sign in
+                            </Button>
+                        </LoginButton>
                     </div>
                 </div>
             </div>
@@ -123,11 +127,6 @@ async function HomePage() {
                     <BlogCard key={course.title} {...course} />
                 ))}
             </div>
-            <LoginButton>
-                <Button className={"bg-orange-500 dark:text-white rounded-full"}>
-                    Sign in
-                </Button>
-            </LoginButton>
         </>
     )
 }

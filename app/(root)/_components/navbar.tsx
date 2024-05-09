@@ -8,6 +8,9 @@ import {usePathname} from "next/navigation";
 import {cn} from "@/lib/utils";
 import Mobile from "@/app/(root)/_components/mobile";
 import { BookOpen } from 'lucide-react';
+import {LoginButton} from "@/components/auth/login-button";
+import {Button} from "@/components/ui/button";
+import {UserButton} from '@/components/auth/user-button'
 
 function Navbar() {
     const pathName = usePathname()
@@ -36,6 +39,14 @@ function Navbar() {
                 <div className={"gap-1 flex items-center"}>
                     <GlobalSearch/>
                     <ModeToggle/>
+                    <LoginButton>
+                        <Button className={"max-sm:hidden bg-orange-500 dark:text-white rounded-full"}>
+                            Sign in
+                        </Button>
+                    </LoginButton>
+                    <div className={'xl:ml-4 mt-2'}>
+                        <UserButton/>
+                    </div>
                     <Mobile/>
                 </div>
             </div>
