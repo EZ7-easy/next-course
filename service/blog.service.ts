@@ -9,12 +9,6 @@ export const getCourses = async () => {
         courses {
           title
           cost
-          author {
-            name
-            image {
-              url
-            }
-          }
         image {
           url
         }
@@ -22,7 +16,6 @@ export const getCourses = async () => {
         content{
             html
         }
-        date
        }
     }
    `
@@ -34,12 +27,6 @@ export const getDetailedCourse = async (slug: string) => {
     const query = gql`
 		query MyQuery ($slug: String!){
   			course(where: {slug: $slug}) {
-    		author {
-      			name
-      			image {
-        			url	
-      			}
-    		}
     		image {
       			url
     		}
@@ -48,7 +35,7 @@ export const getDetailedCourse = async (slug: string) => {
     		}
     		slug
     		title
-    		date
+    		cost
     	}	
 	}	
 `
@@ -65,7 +52,6 @@ export const getSearchCourses = async (title: string) => {
 					url
 				}
 				slug
-				date
 			}
 		}
 	`

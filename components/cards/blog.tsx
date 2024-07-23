@@ -1,67 +1,66 @@
-import { ICourse } from '@/types'
-import { CalendarDays, Clock, Minus } from 'lucide-react'
+import {VscCircleLarge} from "react-icons/vsc";
 import Image from 'next/image'
 import Link from 'next/link'
+import { ICourse } from '@/types'
+import {getCourses} from "@/service/blog.service";
+
 
 interface Props extends ICourse {
     isVertical?: boolean
 }
 
-function BlogCard(course: Props) {
+async function BlogCard(course: Props) {
+
+
     return (
-        <div className={"w-[370px] border rounded-3xl mx-auto"}>
-            <Link
-                href={`/courses/${course.slug}`}
-                className={"mx-auto"}
-            >
-                <div className=''>
-                    <Image
-                        width={450}
-                        height={450}
-                        src={course.image.url}
-                        alt={course.title}
-                        className='rounded-md  object-cover'
-                    />
-
-                </div>
-            </Link>
-            <div className='space-y-4 mx-auto'>
-                <div className='flex items-center gap-4 ml-7 mt-2'>
-                    
-                    <div className='flex items-center gap-2'>
+        <div className={'mx-auto'}>
+            <div className={'w-[360px] h-[530px]'}>
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden">
+                    <div>
                         <Image
-                            src={course.author.image.url}
-                            alt='author'
-                                width={30}
-                                height={30}
-                                className='object-cover rounded-sm'
-                            />
-                            <p>by {course.author.name}</p>
+                            width={360}
+                            height={530}
+                            className="h-[530px] w-full object-cover"
+                            src={course.image.url}
+                            alt="image"/>
+                    </div>
+                    <div
+                        className="absolute inset-0  from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+                    <div
+                        className="bg-gradient-to-b from-transparent via-transparent to-white group-hover:from-white/70 group-hover:via-white/60 group-hover:to-white/70 h-[80px] absolute mt-[470px] inset-0 flex translate-y-[35%] flex-col  justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <button
+                            className="w-[100px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 font-com text-sm capitalize">
+                            <Link href={`/courses/${course.slug}`}>
+                                <div>Sotib olish</div>
+                            </Link>
+                        </button>
+                        <div
+                            className="mb-6 ml-3 flex gap-10 text-lg italic opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            <button>XL</button>
+                            <button>L</button>
+                            <button>M</button>
                         </div>
                     </div>
-                    {/* Title */}
-                    <h2 className='text-xl font-creteRound group-hover:text-blue-500 transition-colors ml-7'>
+                </div>
+            </div>
+            <div className={'mx-3 my-2'}>
+                <div className={'text-md'}>
+                    <Link href={`/courses/${course.slug}`}>
                         {course.title}
-                    </h2>
-                    {/* Time info */}
-                    <div className='flex items-center gap-4 ml-7'>
-                        <div className='flex items-center gap-2'>
-                            {course.date}
-                        </div>
-                        <Minus/>
-                        <div className='flex items-center gap-2'>
-                            <Clock className='w-5 h-5'/>
-                            <p>01 min read</p>
-                        </div>
-                    </div>
-                    <hr className={"w-[350px] mx-auto"}/>
-                    <div className={"mx-auto ml-7 flex"}>
-                        <p className={"text-xl text-green-500 mb-4"}>
-                            ${course.cost}
-                        </p>
-                        <Link href={`/courses/${course.slug}`} className={"text-grey ml-[190px]"}>View more</Link>
-                    </div>
-
+                    </Link>
+                </div>
+                <div className={'flex gap-2 mt-2'}>
+                    <VscCircleLarge className={'bg-gray-600 rounded-full p-[12px]'}/>
+                    <VscCircleLarge className={'bg-blue-700 rounded-full p-[12px]'}/>
+                    <VscCircleLarge className={'bg-black rounded-full p-[12px]'}/>
+                </div>
+                <div className={'mt-2'}><Link href={`/courses/${course.slug}`}>Narx: {course.cost} UZS</Link></div>
+                {/*<Link href={`/categories/${product.categories.slug}`}>*/}
+                {/*    <Badge variant={'outline'} role='button'>*/}
+                {/*        /!*{product.categories.name}*!/*/}
+                {/*    </Badge>*/}
+                {/*</Link>*/}
             </div>
         </div>
     )

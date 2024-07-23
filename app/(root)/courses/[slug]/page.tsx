@@ -1,94 +1,83 @@
-import { Button } from '@/components/ui/button'
-import { getDetailedCourse } from '@/service/blog.service'
-import parse from 'html-react-parser'
-import {
-    ArrowUpRight,
-    Facebook,
-    Link2,
-    Linkedin,
-    Minus,
-    Send,
-    Twitter,
-} from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { FaStar } from "react-icons/fa";
+import { Check } from 'lucide-react';
+import {Button} from "@/components/ui/button";
+import { LuShoppingCart } from "react-icons/lu";
+import Link from "next/link";
+// import Counter from "@/app/(root)/_components/Counter";
+import {getDetailedCourse} from "@/service/blog.service";
 
 async function SlugPage({ params }: { params: { slug: string } }) {
     const course = await getDetailedCourse(params.slug)
 
     return (
-        <div className='pt-[15vh] max-w-5xl mx-auto'>
-            <iframe width="1000" height="500" src="https://www.youtube.com/embed/3NzHTCWtY6A?si=ZbYAtQGKJjlIh4ek"
-                    title="YouTube video player" frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-
-            <h1 className='lg:text-6xl md:text-5xl text-4xl font-creteRound mt-10'>
-                {course.title}
-            </h1>
-
-            <div className='flex items-center flex-wrap max-md:justify-center gap-4 mt-4'>
-                <div className='flex items-center gap-2'>
-                    <Image
-                        src={course.author.image.url}
-                        alt='author'
-                        width={30}
-                        height={30}
-                        className='object-cover rounded-sm'
-                    />
-                    <p>by {course.author.name}</p>
+        <div>
+            <div  className={'text-center flex gap-2 mx-auto w-[515px] mt-5'}>
+                <Link href={'/'}>
+                    <h1 className={'text-[rgb(189,190,191)] hover:text-black'}>Asosiy</h1>
+                </Link>
+                <p className={'text-[rgb(189,190,191)]'}>-</p>
+                <Link href={'/catalog'}>
+                    <h1 className={'text-[rgb(189,190,191)] hover:text-black'}>Kiyim katalogi</h1>
+                </Link>
+                {/*<p className={'text-[rgb(189,190,191)]'}>-</p>*/}
+                {/*<Link href={'/catalog/tashqi-kiyim'}>*/}
+                {/*    <h1 className={'text-[rgb(189,190,191)] hover:text-black'}>Tashqi kiyim</h1>*/}
+                {/*</Link>*/}
+                <p className={'text-[rgb(189,190,191)]'}>-</p>
+                <div>
+                    <h1>Vetrovka</h1>
                 </div>
-                <Minus/>
-                <p>{course.date}</p>
-                <Minus/>
+                <p className={'text-[rgb(189,190,191)]'}>-</p>
+                <div>
+                    {course.title}
+                </div>
             </div>
-
-
-            <div className='flex md:gap-12 max-md:flex-col-reverse mt-12 relative'>
-                <div className='flex flex-col space-y-3'>
-                    <div className='sticky top-36'>
-                        <p className='text-lg uppercase text-muted-foreground'>Share</p>
-                        <div className='flex flex-col max-md:flex-row md:space-y-3 max-md:space-x-3 mt-4'>
-                            <Button size={'icon'} variant={'outline'}>
-                                <Twitter/>
-                            </Button>
-                            <Button size={'icon'} variant={'outline'}>
-                                <Facebook/>
-                            </Button>
-                            <Button size={'icon'} variant={'outline'}>
-                                <Linkedin/>
-                            </Button>
-                            <Button size={'icon'} variant={'outline'}>
-                                <Send/>
-                            </Button>
-                            <Button size={'icon'} variant={'outline'}>
-                                <Link2/>
-                            </Button>
+            <h1 className={'text-4xl text-center my-6'}><strong>{course.title}</strong></h1>
+            <div className={'flex mx-auto w-[1000px] gap-8 mb-[50px]'}>
+                <div className={'w-[600px] h-[900px]'}>
+                    <img src={course.image.url} alt={'image'}/>
+                </div>
+                <div className={''}>
+                    <h1 className={'text-sm'}>Artikul: SS24CR1-27-19816</h1>
+                    <div className={'flex my-5'}>
+                        <FaStar className={'text-lg text-yellow-400'}/>
+                        <FaStar className={'text-lg text-yellow-400'}/>
+                        <FaStar className={'text-lg text-yellow-400'}/>
+                        <FaStar className={'text-lg text-yellow-400'}/>
+                        <FaStar className={'text-lg text-yellow-400'}/>
+                    </div>
+                    <h1 className={'text-3xl'}>
+                        <span className={'text-sm'}>Narx:</span> <br/>
+                        <strong>{course.cost} UZS</strong>
+                    </h1>
+                    <div>
+                        <h1 className={'text-sm mt-[50px]'}>Hajmi</h1>
+                        <button className={'mt-2 rounded-2xl text-sm bg-[rgb(232,232,232)] py-1 px-4'}>M</button>
+                    </div>
+                    <div>
+                        <h1 className={'text-sm mt-4'}>Rang</h1>
+                        <Check className={'mt-2 rounded-2xl text-sm text-black bg-[rgb(232,232,232)] p-1'}/>
+                    </div>
+                    <div className={'flex gap-7 my-7'}>
+                        {/*<Counter/>*/}
+                        <Button className={'gap-2 rounded-3xl p-6 bg-[rgb(56,59,71)]'}><LuShoppingCart/>Sotib
+                            Olish</Button>
+                    </div>
+                    <div>Ветровка короткая длина</div>
+                    <div className={'flex gap-[150px] mt-5'}>
+                        <div>
+                            <h1 className={'text-sm'}>Uslub</h1>
+                            <h1>CORE</h1>
+                        </div>
+                        <div>
+                            <h1 className={'text-sm'}>Materiallar</h1>
+                            <h1>полиэстер</h1>
                         </div>
                     </div>
-                </div>
-                <div className='flex-1 prose dark:prose-invert'>
-                    {parse(course.content.html)}
-                </div>
-            </div>
-
-            <div className='flex mt-6 gap-6 items-center max-md:flex-col'>
-                <Image
-                    src={course.author.image.url}
-                    alt='author'
-                    width='155'
-                    height='155'
-                    className='rounded-md max-md:self-start'
-                />
-                <div className='flex-1 flex flex-col space-y-4'>
-                    <h2 className='text-3xl font-creteRound'>{course.author.name}</h2>
-                    <Link
-                        href={'/'}
-                        className='flex items-center gap-2 hover:text-blue-500 underline transition-colors'
-                    >
-                        <span>See all posts by this author</span>
-                        <ArrowUpRight/>
-                    </Link>
+                    <div className={'mt-3'}>
+                        <h1 className={'text-sm'}>Tarkibi</h1>
+                        <h1>100% polyester</h1>
+                    </div>
                 </div>
             </div>
         </div>
